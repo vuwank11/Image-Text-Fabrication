@@ -4,12 +4,17 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
-def draw_rotated_text(image, angle, xy, text, fill, *args, **kwargs):
+def draw_rotated_text(image, angle, xy, text, fill, font):
     """ Draw text at an angle into an image, takes the same arguments
         as Image.text() except for:
 
-    :param image: Image to write text into
-    :param angle: Angle to write text at
+    Parameters:
+    image: blank image in which rotated text will be drawn
+    angle: angle of rotation
+    xy:(x,y) starting points of text
+    text: characters or texts to be drawn on image
+    fill: color of text
+    font: Font of the text
     """
     # get the size of our image
     width, height = image.size
@@ -21,7 +26,7 @@ def draw_rotated_text(image, angle, xy, text, fill, *args, **kwargs):
 
     # add text to mask
     draw = ImageDraw.Draw(mask)
-    draw.text((max_dim, max_dim), text, 255, *args, **kwargs)
+    draw.text((max_dim, max_dim), text, 255, font)
 
     if angle % 90 == 0:
         # rotate by multiple of 90 deg is easier
