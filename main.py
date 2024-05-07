@@ -241,7 +241,7 @@ def create_data(img,x1,x2, y1,y2, imgno)-> None:
                 xcor3 + (bottom_right3[0] - xcor3) * cos_angle3 - (bottom_right3[1] - ycor3) * sin_angle3,
                 ycor3 + (bottom_right3[0] - xcor3) * sin_angle3 + (bottom_right3[1] - ycor3) * cos_angle3
             )
-        #print("time2: ", time.time()-st)
+        
         ##### To create a annotation files
         ##### For First line
         final_coord1 = []
